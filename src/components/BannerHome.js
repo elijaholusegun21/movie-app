@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const BannerHome = () => {
     const bannerData = useSelector(state => state.movieoData.bannerData);
@@ -66,9 +67,12 @@ const BannerHome = () => {
                                 <span>|</span>
                                 <p>Views: {Number(data.popularity).toFixed(0)}</p>
                             </div>
-                            <button className="bg-white px-4 py-2 mt-4 text-black font-bold rounded hover:bg-gradient-to-r from-red-600 to-orange-500 transition-all">
-                                Play Now
-                            </button>
+                           
+                           <Link to={"/"+data?.media_type+"/"+data.id}>
+                                <button className="bg-white px-4 py-2 mt-4 text-black font-bold rounded hover:bg-gradient-to-r from-red-600 to-orange-500 transition-all">
+                                        Play Now
+                                </button>
+                           </Link>
                         </div>
 
                         {/* Navigation Buttons */}
